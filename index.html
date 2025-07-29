@@ -3,613 +3,674 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Narivexo | The AI That Builds Your Website</title>
+    <title>Narivexo | The AI Website Builder That Brings Your Vision to Life</title>
+    <meta name="description" content="Stop wrestling with code and templates. Describe your ideal website, and let Narivexo's advanced AI build it for you in minutes. Join the waitlist for exclusive early access!">
     
-    <!-- SEO and Ads Meta Tags -->
-    <meta name="description" content="Join the waitlist for Narivexo, the revolutionary AI website builder. Describe your vision in plain English, and our AI will design and build a stunning, professional website for you in minutes. Get early access!">
-    <meta name="keywords" content="ai website builder, narivexo, website builder, artificial intelligence, no-code, landing page, small business website, portfolio website">
-    <meta name="author" content="Narivexo">
-
-    <!-- Favicon (Generic) -->
+    <!-- Favicon (Emoji as a quick placeholder, you can replace this with a real favicon) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
-
+    
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Reset and Global Styles */
+        /* CSS RESET & DEFAULTS */
         :root {
-            --primary-color: #8A2BE2; /* BlueViolet */
-            --secondary-color: #4A90E2; /* A nice Blue */
-            --dark-bg: #0D0C1D; /* Deep space blue */
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-color: #F0F2F5;
-            --text-muted: #a0aec0;
+            --primary-color: #ffffff;
+            --secondary-color: #b0b8d8;
+            --background-color: #0d0f18;
+            --card-background: rgba(25, 28, 41, 0.7);
+            --accent-gradient: linear-gradient(90deg, #8A2BE2, #4A00E0, #00D4FF);
+            --accent-color-1: #8A2BE2; /* BlueViolet */
+            --accent-color-2: #00D4FF; /* DeepSkyBlue */
             --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-color: rgba(74, 0, 224, 0.5);
+            --success-color: #28a745;
+            --error-color: #dc3545;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-color);
+            background-color: var(--background-color);
+            color: var(--primary-color);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: linear-gradient(315deg, var(--primary-color) 0%, var(--dark-bg) 30%, var(--dark-bg) 70%, var(--secondary-color) 100%);
+            background-image: var(--accent-gradient);
+            animation: gradient-animation 20s ease infinite;
             background-size: 400% 400%;
-            animation: gradientAnimation 20s ease infinite;
         }
 
-        @keyframes gradientAnimation {
+        @keyframes gradient-animation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
+        .page-wrapper {
+            background-color: rgba(13, 15, 24, 0.95);
+            backdrop-filter: blur(100px);
+            -webkit-backdrop-filter: blur(100px);
+        }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        /* Animation on Scroll */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            padding: 0 20px;
         }
 
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header & Navigation */
+        /* HEADER */
         .header {
-            padding: 2rem 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(13, 12, 29, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .navbar {
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(13, 15, 24, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--text-color);
-        }
-        
-        .logo-svg {
-            width: 40px;
-            height: 40px;
-            transition: transform 0.3s ease;
-        }
-        .logo:hover .logo-svg {
-            transform: rotate(-15deg);
+        .logo svg {
+            width: 150px;
+            height: auto;
         }
 
-        .cta-button {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            color: #fff;
-            padding: 0.75rem 1.5rem;
+        .cta-button-header {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 10px 20px;
             border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-size: 200% 200%;
         }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+        .cta-button-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            animation: gradient-animation 3s ease infinite;
         }
 
-        /* Hero Section */
+        /* HERO SECTION */
         .hero {
-            padding-top: 180px;
-            padding-bottom: 120px;
             text-align: center;
+            padding: 100px 0;
             position: relative;
-        }
-        
-        .hero .container {
-            position: relative;
-            z-index: 10;
         }
         
         .hero-title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: -webkit-linear-gradient(45deg, #fff, #b892ff);
+            line-height: 1.2;
+            background: linear-gradient(90deg, #ffffff, #b0b8d8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: text-glow 2s ease-in-out infinite alternate;
+            margin-bottom: 20px;
+            animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
         }
 
-        @keyframes text-glow {
-            from {
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--primary-color), 0 0 20px var(--primary-color);
-            }
-            to {
-                text-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 25px var(--secondary-color), 0 0 30px var(--secondary-color);
-            }
+        @keyframes text-focus-in {
+          0% {
+            filter: blur(12px);
+            opacity: 0;
+          }
+          100% {
+            filter: blur(0px);
+            opacity: 1;
+          }
         }
-        
+
         .hero-subtitle {
             font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            color: var(--text-muted);
-        }
-        
-        .hero .cta-button {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-        }
-        
-        /* Shared Section Styles */
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 4rem;
-        }
-        
-        /* How It Works Section */
-        .how-it-works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .how-it-works-card {
-            background: var(--card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .how-it-works-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-        }
-        
-        .how-it-works-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .how-it-works-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .how-it-works-card p {
-            color: var(--text-muted);
-        }
-        
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            border-color: var(--secondary-color);
-            background: rgba(255, 255, 255, 0.08);
-        }
-        
-        .feature-item .icon {
-            font-size: 1.5rem;
             color: var(--secondary-color);
-            margin-top: 5px;
-        }
-        
-        .feature-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .feature-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-        
-        /* Waitlist Form Section */
-        .waitlist-section {
-            background: linear-gradient(180deg, rgba(13, 12, 29, 0), rgba(138, 43, 226, 0.2));
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
         }
 
-        .waitlist-box {
+        /* FORM */
+        .waitlist-form {
             max-width: 600px;
             margin: 0 auto;
-            background: var(--card-bg);
-            padding: 3rem;
+            background: var(--card-background);
+            padding: 40px;
             border-radius: 16px;
             border: 1px solid var(--border-color);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+            text-align: left;
         }
-        
+
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
             font-weight: 500;
-            color: var(--text-muted);
+            color: var(--secondary-color);
         }
-        
+
         .form-control {
             width: 100%;
-            padding: 1rem;
-            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            background-color: #0d0f18;
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            color: var(--text-color);
+            color: var(--primary-color);
             font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
         
         .form-control:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: var(--accent-color-1);
             box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
+        }
+
+        .custom-select-wrapper {
+            position: relative;
+        }
+
+        .custom-select-wrapper::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+            pointer-events: none;
         }
 
         select.form-control {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23a0aec0' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
         }
-        
-        .submit-btn {
+
+        .submit-button {
             width: 100%;
-            padding: 1rem;
+            padding: 15px;
             font-size: 1.1rem;
             font-weight: 700;
+            color: white;
+            background: var(--accent-gradient);
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            color: #fff;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-size: 200%;
         }
-        
-        .submit-btn:hover {
+        .submit-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+            box-shadow: 0 6px 25px var(--shadow-color);
+            animation: gradient-animation 3s ease infinite alternate;
         }
         
-        .form-disclaimer {
-            font-size: 0.8rem;
-            color: var(--text-muted);
+        .submit-button:disabled {
+            background: #555;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #form-status {
+            margin-top: 20px;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+        }
+        #form-status.success {
+            background-color: rgba(40, 167, 69, 0.2);
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+            display: block;
+        }
+        #form-status.error {
+            background-color: rgba(220, 53, 69, 0.2);
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+            display: block;
+        }
+
+        .waitlist-perk {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+        .waitlist-perk i {
+            color: var(--accent-color-2);
+            margin-right: 8px;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 100px 0;
             text-align: center;
-            margin-top: 1rem;
         }
-        
-        /* Footer */
-        .footer {
-            padding: 3rem 0;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-        }
-        
-        .footer-logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.25rem;
+
+        .section-title {
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-            text-decoration: none;
+            margin-bottom: 20px;
         }
-        .footer-logo .logo-svg{
-            width: 30px;
-            height: 30px;
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            max-width: 600px;
+            margin: 0 auto 60px;
         }
-        
-        .footer-links {
-            margin-bottom: 1.5rem;
+
+        /* HOW IT WORKS */
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            text-align: left;
         }
-        
+
+        .step-card {
+            background: var(--card-background);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-color-1);
+            margin-bottom: 15px;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color-1);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .step-description {
+            color: var(--secondary-color);
+        }
+
+        /* FEATURES SECTION */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: var(--card-background);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s;
+        }
+        .feature-item:hover {
+            background: rgba(25, 28, 41, 1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            width: 40px;
+            text-align: center;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .feature-description {
+            color: var(--secondary-color);
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background-color: #0d0f18;
+        }
+
+        .footer p {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
         .footer-links a {
-            color: var(--text-muted);
+            color: var(--secondary-color);
             text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
+            margin: 0 10px;
+            transition: color 0.3s;
         }
-        
         .footer-links a:hover {
             color: var(--primary-color);
         }
         
-        .copyright {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        /* SCROLL ANIMATIONS */
+        .animated-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .animated-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Responsive Design */
+        /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 3rem;
+                font-size: 2.8rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .waitlist-form {
+                padding: 30px;
+            }
+            .section {
+                padding: 80px 0;
             }
             .section-title {
                 font-size: 2rem;
             }
-            .waitlist-box {
-                padding: 2rem;
+            .header {
+                padding: 15px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .waitlist-form {
+                padding: 20px;
+            }
+            .features-grid, .how-it-works-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-            .navbar {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .hero {
-                padding-top: 220px;
-            }
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">
-                    <!-- SVG Logo for Narivexo -->
-                    <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:var(--primary-color); stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:var(--secondary-color); stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <path fill="url(#logoGradient)" d="M20,10 L35,10 L80,90 L65,90 L20,10 Z M25,20 L65,20 L75,40 L35,40 L25,20 Z M30,50 L70,50 L80,70 L40,70 L30,50 Z"/>
-                    </svg>
-                    <span>Narivexo</span>
-                </a>
-                <a href="#waitlist" class="cta-button">Join Waitlist</a>
-            </nav>
-        </div>
+<div class="page-wrapper">
+    <header class="header container">
+        <a href="#" class="logo" aria-label="Narivexo Home">
+            <svg viewBox="0 0 196 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="var(--accent-color-1)"/>
+                        <stop offset="100%" stop-color="var(--accent-color-2)"/>
+                    </linearGradient>
+                </defs>
+                <path d="M21.134 39.5L0 0.5H10.166L26.33 30.2L26.594 30.2L42.246 0.5H52.15L31.016 39.5H21.134Z" fill="white"/>
+                <path d="M78.6826 23.3V39.5H68.5166V0.5H86.2546C90.9586 0.5 94.6786 1.76 97.4146 4.28C100.183 6.7675 101.567 10.06 101.567 14.15C101.567 17.515 100.618 20.3 98.7226 22.5C96.8596 24.6675 94.2706 26.155 90.9556 26.96L84.0946 28.52L103.355 39.5H91.6366L78.6826 23.3ZM78.6826 16.4V7.58H85.4326C87.4306 7.58 88.9246 8.035 89.9146 8.945C90.9376 9.8225 91.4476 11.03 91.4476 12.56C91.4476 14.0575 90.9316 15.245 89.8996 16.125C88.8996 16.9725 87.4126 17.4 85.4386 17.4H78.6826V16.4Z" fill="white"/>
+                <path d="M127.311 0.5V39.5H117.145V0.5H127.311Z" fill="white"/>
+                <path d="M149.623 0.5L163.663 21.62L177.703 0.5H188.983L168.823 30.08V39.5H158.443V30.08L138.283 0.5H149.623Z" fill="white"/>
+                <path d="M195.111 39.5C189.656 39.5 185.121 37.89 181.506 34.67C177.923 31.4175 176.131 27.245 176.131 22.145C176.131 17.045 177.923 12.8725 181.506 9.62C185.121 6.335 189.656 4.7 195.111 4.7C200.566 4.7 205.101 6.335 208.716 9.62C212.331 12.8725 214.141 17.045 214.141 22.145C214.141 27.245 212.331 31.4175 208.716 34.67C205.101 37.89 200.566 39.5 195.111 39.5ZM195.111 32.51C197.881 32.51 200.041 31.5725 201.591 29.69C203.174 27.775 203.966 25.21 203.966 22.01C203.966 18.7775 203.174 16.2125 201.591 14.33C200.041 12.415 197.881 11.45 195.111 11.45C192.341 11.45 190.181 12.415 188.631 14.33C187.081 16.2125 186.306 18.7775 186.306 22.01C186.306 25.21 187.081 27.775 188.631 29.69C190.181 31.5725 192.341 32.51 195.111 32.51Z" transform="translate(-45,0)" fill="url(#logoGradient)"/>
+            </svg>
+        </a>
+        <a href="#waitlist" class="cta-button-header">Join Waitlist</a>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h1 class="hero-title animate-on-scroll">Your Vision, Instantly Realized.</h1>
-                <p class="hero-subtitle animate-on-scroll" style="transition-delay: 0.2s;">Stop wrestling with templates and code. Describe your dream website in plain English, and let Narivexo's advanced AI design, write, and build a stunning, professional site for you in minutes.</p>
-                <a href="#waitlist" class="cta-button animate-on-scroll" style="transition-delay: 0.4s;">Get Early Access »</a>
-            </div>
-        </section>
-
-        <!-- How It Works Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Website Creation. Reimagined.</h2>
-                <p class="section-subtitle animate-on-scroll">Building a professional website is now as simple as a conversation. Our AI handles the heavy lifting, so you can focus on your business.</p>
-                <div class="how-it-works-grid">
-                    <div class="how-it-works-card animate-on-scroll" style="transition-delay: 0.1s;">
-                        <i class="fas fa-comment-dots icon"></i>
-                        <h3>1. Describe Your Idea</h3>
-                        <p>Simply tell our AI about your business, project, or portfolio. The more detail you give, the better the result.</p>
+        <section id="waitlist" class="hero container">
+            <h1 class="hero-title">Your Vision, Instantly Realized.<br>AI Builds The Website For You.</h1>
+            <p class="hero-subtitle">Stop wrestling with complex builders and endless templates. Describe your ideal website in plain English, and let Narivexo's advanced AI generate a stunning, professional site in minutes. The future of web design is here.</p>
+            
+            <div class="waitlist-form">
+                <form id="contact-form" action="https://formspree.io/f/mblkggkr" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Jane Doe" required>
                     </div>
-                    <div class="how-it-works-card animate-on-scroll" style="transition-delay: 0.3s;">
-                        <i class="fas fa-wand-magic-sparkles icon"></i>
-                        <h3>2. AI-Powered Generation</h3>
-                        <p>Narivexo's AI analyzes your description to generate unique layouts, color palettes, and copywriting tailored to your needs.</p>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
                     </div>
-                    <div class="how-it-works-card animate-on-scroll" style="transition-delay: 0.5s;">
-                        <i class="fas fa-rocket icon"></i>
-                        <h3>3. Customize & Launch</h3>
-                        <p>Fine-tune the AI-generated design with our easy-to-use editor, connect your domain, and launch your new website.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Features Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">More Than Just a Builder</h2>
-                <p class="section-subtitle animate-on-scroll">Narivexo comes packed with features to ensure your website is not only beautiful but also powerful and effective.</p>
-                <div class="features-grid">
-                    <div class="feature-item animate-on-scroll">
-                        <i class="fas fa-brain icon"></i>
-                        <div>
-                            <h3>True AI-Powered Design</h3>
-                            <p>Unlike template-based builders, our AI creates genuinely unique, context-aware designs from scratch for every user.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item animate-on-scroll">
-                        <i class="fas fa-feather-alt icon"></i>
-                        <div>
-                            <h3>AI Copywriting</h3>
-                            <p>Struggling with words? Our AI can generate compelling headlines, service descriptions, and calls to action for you.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item animate-on-scroll">
-                        <i class="fas fa-bolt icon"></i>
-                        <div>
-                            <h3>Blazing-Fast Performance</h3>
-                            <p>Websites built with Narivexo are optimized for speed, ensuring a great user experience and better search rankings.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item animate-on-scroll">
-                        <i class="fas fa-chart-line icon"></i>
-                        <div>
-                            <h3>Built-in SEO Optimization</h3>
-                            <p>We automatically handle technical SEO best practices, so you can be found by customers on Google.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item animate-on-scroll">
-                        <i class="fas fa-mobile-alt icon"></i>
-                        <div>
-                            <h3>Fully Responsive</h3>
-                            <p>Your website will look and function perfectly on any device, from desktops to tablets and smartphones.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item animate-on-scroll">
-                        <i class="fas fa-edit icon"></i>
-                        <div>
-                            <h3>Intuitive Editor</h3>
-                            <p>Love the AI's creation but want to tweak it? Our simple drag-and-drop editor gives you full control.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Waitlist Form Section -->
-        <section id="waitlist" class="section waitlist-section">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Be the First to Experience Narivexo</h2>
-                <p class="section-subtitle animate-on-scroll">The future of web design is here. Join our exclusive waitlist for early access, special launch discounts, and updates.</p>
-                <div class="waitlist-box animate-on-scroll">
-                    <form action="https://formspree.io/f/mblkggkr" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="e.g., Jane Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="website-type">What type of website do you need?</label>
-                            <select id="website-type" name="website_type" class="form-control" required>
+                    <div class="form-group">
+                        <label for="website_type">What kind of website do you want to build?</label>
+                        <div class="custom-select-wrapper">
+                            <select id="website_type" name="website_type" class="form-control" required>
                                 <option value="" disabled selected>Select an option...</option>
-                                <option value="Small Business">Small Business / Startup</option>
-                                <option value="Portfolio">Personal Portfolio / CV</option>
-                                <option value="E-commerce">E-commerce Store</option>
-                                <option value="Blog">Blog / Content Hub</option>
-                                <option value="Restaurant">Restaurant / Cafe</option>
-                                <option value="Real Estate">Real Estate Agency</option>
-                                <option value="Non-Profit">Non-Profit Organization</option>
-                                <option value="Landing Page">Event / Product Landing Page</option>
+                                <option value="Portfolio / Personal">Portfolio / Personal Website</option>
+                                <option value="Small Business / Services">Small Business / Services</option>
+                                <option value="E-commerce / Online Store">E-commerce / Online Store</option>
+                                <option value="Blog / Content Hub">Blog / Content Hub</option>
+                                <option value="Startup / Tech Company">Startup / Tech Company</option>
+                                <option value="Restaurant / Cafe">Restaurant / Cafe</option>
+                                <option value="Event / Landing Page">Event / Landing Page</option>
+                                <option value="Non-Profit / Community">Non-Profit / Community</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        <button type="submit" class="submit-btn">Secure My Spot</button>
-                        <p class="form-disclaimer">We respect your privacy. No spam, ever. Unsubscribe at any time.</p>
-                    </form>
+                    </div>
+                    <button type="submit" id="submit-btn" class="submit-button">Get Early Access</button>
+                    <div id="form-status"></div>
+                </form>
+                <p class="waitlist-perk animated-item"><i class="fa-solid fa-bell"></i> Be the first to know when we launch!</p>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section container">
+            <h2 class="section-title animated-item">3 Simple Steps to Your Perfect Website</h2>
+            <p class="section-subtitle animated-item">Building a website has never been this intuitive. Our AI handles the heavy lifting, so you can focus on your ideas.</p>
+            <div class="how-it-works-grid">
+                <div class="step-card animated-item">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Describe Your Vision</h3>
+                    <p class="step-description">Tell our AI what you need. For example: "Create a modern portfolio for a photographer with a dark theme and a gallery page" or "I need a website for my coffee shop with a menu and online ordering."</p>
+                </div>
+                <div class="step-card animated-item" style="transition-delay: 0.2s;">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">AI Generates & Designs</h3>
+                    <p class="step-description">In seconds, Narivexo analyzes your request, generates relevant text and images, and designs a unique, fully-functional website layout. No templates, just pure creativity.</p>
+                </div>
+                <div class="step-card animated-item" style="transition-delay: 0.4s;">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Customize & Launch</h3>
+                    <p class="step-description">Fine-tune the results with our easy-to-use editor. Change colors, fonts, or layouts with simple commands. When you're happy, launch your site with a single click.</p>
                 </div>
             </div>
         </section>
+
+        <section id="features" class="section container">
+            <h2 class="section-title animated-item">Packed with Powerful Features</h2>
+            <p class="section-subtitle animated-item">Narivexo isn't just a builder; it's a complete platform to help you succeed online. We provide everything you need, right out of the box.</p>
+            <div class="features-grid">
+                <div class="feature-item animated-item">
+                    <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div>
+                        <h3 class="feature-title">True AI-Powered Design</h3>
+                        <p class="feature-description">Our AI doesn't just fill a template. It understands design principles to create unique, aesthetically pleasing layouts from scratch.</p>
+                    </div>
+                </div>
+                <div class="feature-item animated-item">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div>
+                        <h3 class="feature-title">SEO Optimized Content</h3>
+                        <p class="feature-description">AI generates keyword-rich content and meta tags based on your description, giving you a head start on search engine rankings.</p>
+                    </div>
+                </div>
+                <div class="feature-item animated-item">
+                    <div class="feature-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+                    <div>
+                        <h3 class="feature-title">Intuitive No-Code Editor</h3>
+                        <p class="feature-description">Make changes easily without touching a line of code. Our editor is designed for speed and simplicity.</p>
+                    </div>
+                </div>
+                <div class="feature-item animated-item">
+                    <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <div>
+                        <h3 class="feature-title">Responsive By Default</h3>
+                        <p class="feature-description">Every website created with Narivexo looks stunning and functions perfectly on desktops, tablets, and smartphones.</p>
+                    </div>
+                </div>
+                <div class="feature-item animated-item">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div>
+                        <h3 class="feature-title">Blazing-Fast Hosting</h3>
+                        <p class="feature-description">Enjoy top-tier performance with our integrated, high-speed hosting, ensuring a great user experience for your visitors.</p>
+                    </div>
+                </div>
+                <div class="feature-item animated-item">
+                    <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
+                    <div>
+                        <h3 class="feature-title">AI-Assisted Branding</h3>
+                        <p class="feature-description">Need a color palette or a logo idea? Our AI can generate branding suggestions to match your website's style and purpose.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-join" class="section container" style="padding-bottom: 120px;">
+            <h2 class="section-title animated-item">Why Join The Waitlist?</h2>
+            <p class="section-subtitle animated-item">Be part of an exclusive group of early adopters who will shape the future of web creation. Signing up gives you incredible benefits.</p>
+            <div class="how-it-works-grid">
+                 <div class="step-card animated-item">
+                    <div class="step-number"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 class="step-title">Priority Access</h3>
+                    <p class="step-description">Get to use Narivexo before anyone else. Be the first to experience the magic of AI-powered web design and secure your unique username.</p>
+                </div>
+                <div class="step-card animated-item" style="transition-delay: 0.2s;">
+                    <div class="step-number"><i class="fa-solid fa-tags"></i></div>
+                    <h3 class="step-title">Exclusive Lifetime Discount</h3>
+                    <p class="step-description">As a thank you for your early support, waitlist members will receive a special, one-time offer for a lifetime discount on our premium plans.</p>
+                </div>
+                <div class="step-card animated-item" style="transition-delay: 0.4s;">
+                    <div class="step-number"><i class="fa-solid fa-comments"></i></div>
+                    <h3 class="step-title">Influence Our Roadmap</h3>
+                    <p class="step-description">Your feedback is invaluable. Early users will have a direct line to our development team to request features and help guide our progress.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-             <a href="#" class="footer-logo">
-                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="url(#logoGradient)" d="M20,10 L35,10 L80,90 L65,90 L20,10 Z M25,20 L65,20 L75,40 L35,40 L25,20 Z M30,50 L70,50 L80,70 L40,70 L30,50 Z"/>
-                </svg>
-                <span>Narivexo</span>
-            </a>
+            <p>© 2024 Narivexo. All rights reserved. The future of web design is being built.</p>
             <div class="footer-links">
-                <!-- IMPORTANT: For Google Ads, you should ideally link to actual pages -->
-                <a href="#privacy-policy-modal">Privacy Policy</a>
-                <a href="#terms-of-service-modal">Terms of Service</a>
+                <!-- IMPORTANT: For Google Ads, you should create actual pages for these and link to them -->
+                <a href="#">Privacy Policy</a>
+                <span>•</span>
+                <a href="#">Terms of Service</a>
+                <span>•</span>
+                <a href="#">Contact Us</a>
             </div>
-            <p class="copyright">© 2024 Narivexo. All rights reserved. The future is built with AI.</p>
         </div>
     </footer>
+</div>
 
-    <script>
-        // JavaScript for scroll animations
-        document.addEventListener("DOMContentLoaded", function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
+<script>
+    // ON-SCROLL ANIMATIONS
+    const animatedItems = document.querySelectorAll('.animated-item');
 
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            elements.forEach(el => {
-                observer.observe(el);
-            });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
         });
-    </script>
+    }, {
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    animatedItems.forEach(item => {
+        observer.observe(item);
+    });
+
+    // FORM SUBMISSION HANDLING (AJAX)
+    const form = document.getElementById('contact-form');
+    const statusDiv = document.getElementById('form-status');
+    const submitButton = document.getElementById('submit-btn');
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                statusDiv.innerHTML = "Thank you! You're on the waitlist. We'll be in touch soon.";
+                statusDiv.className = 'success';
+                form.reset();
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        statusDiv.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        statusDiv.innerHTML = "Oops! There was a problem submitting your form. Please try again.";
+                    }
+                    statusDiv.className = 'error';
+                })
+            }
+        }).catch(error => {
+            statusDiv.innerHTML = "Oops! There was a problem submitting your form. Please check your connection.";
+            statusDiv.className = 'error';
+        }).finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Get Early Access';
+        });
+    }
+    form.addEventListener("submit", handleSubmit);
+</script>
+
 </body>
 </html>

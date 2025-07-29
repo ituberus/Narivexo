@@ -3,106 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Narivexo - The AI Website Builder That Reads Your Mind</title>
+    <title>Narivexo | The AI That Builds Your Website</title>
     
     <!-- SEO and Ads Meta Tags -->
-    <meta name="description" content="Join the waitlist for Narivexo, the revolutionary AI website builder. Describe your vision in plain English, and our AI will generate a stunning, professional website in minutes. No code, no templates, just pure creation.">
-    <meta name="keywords" content="AI website builder, no-code website, artificial intelligence web design, automatic website creator, Narivexo, waitlist, landing page">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
+    <meta name="description" content="Join the waitlist for Narivexo, the revolutionary AI website builder. Describe your vision in plain English, and our AI will design and build a stunning, professional website for you in minutes. Get early access!">
+    <meta name="keywords" content="ai website builder, narivexo, website builder, artificial intelligence, no-code, landing page, small business website, portfolio website">
+    <meta name="author" content="Narivexo">
+
+    <!-- Favicon (Generic) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS RESET & ROOT VARIABLES */
+        /* CSS Reset and Global Styles */
         :root {
-            --primary-color: #ffffff;
-            --secondary-color: #a9b3d1;
-            --background-color: #0f172a;
-            --card-color: #1e293b;
-            --accent-color-1: #8A2BE2; /* BlueViolet */
-            --accent-color-2: #4F46E5; /* Indigo */
-            --accent-color-3: #0891B2; /* Cyan */
-            --font-family: 'Poppins', sans-serif;
+            --primary-color: #8A2BE2; /* BlueViolet */
+            --secondary-color: #4A90E2; /* A nice Blue */
+            --dark-bg: #0D0C1D; /* Deep space blue */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-color: #F0F2F5;
+            --text-muted: #a0aec0;
+            --border-color: rgba(255, 255, 255, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: var(--font-family);
-            background-color: var(--background-color);
-            color: var(--primary-color);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: linear-gradient(315deg, var(--primary-color) 0%, var(--dark-bg) 30%, var(--dark-bg) 70%, var(--secondary-color) 100%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 20s ease infinite;
         }
 
-        /* GENERAL STYLES */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
         }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        h1, h2, h3 {
-            font-weight: 600;
-            line-height: 1.2;
-        }
         
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 1.5rem; }
-        p { color: var(--secondary-color); margin: 1rem 0; }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+        /* Animation on Scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .btn-primary {
-            background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
-            color: var(--primary-color);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* HEADER & LOGO */
-        .main-header {
-            padding: 1.5rem 0;
+        /* Header & Navigation */
+        .header {
+            padding: 2rem 0;
             position: fixed;
             width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            background: rgba(15, 23, 42, 0.8);
+            z-index: 1000;
+            background: rgba(13, 12, 29, 0.8);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .main-header .container {
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -111,135 +96,196 @@
         .logo {
             display: flex;
             align-items: center;
+            gap: 0.75rem;
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-color);
             text-decoration: none;
+            color: var(--text-color);
         }
         
-        .logo svg {
+        .logo-svg {
             width: 40px;
             height: 40px;
-            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        .logo:hover .logo-svg {
+            transform: rotate(-15deg);
         }
 
-        /* HERO SECTION */
+        .cta-button {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+        }
+
+        /* Hero Section */
         .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
+            padding-top: 180px;
+            padding-bottom: 120px;
             text-align: center;
-            padding-top: 80px; /* Header height */
-            background: linear-gradient(315deg, rgba(138, 43, 226, 0.1), rgba(15, 23, 42, 1) 60%),
-                        linear-gradient(45deg, rgba(79, 70, 229, 0.1), rgba(15, 23, 42, 1) 60%);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg, var(--accent-color-1), var(--accent-color-2), var(--accent-color-3));
-            animation: animated-gradient 15s ease infinite alternate;
-            background-size: 300% 300%;
-            z-index: -1;
-            opacity: 0.15;
-            filter: blur(100px);
-        }
-
-        @keyframes animated-gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+            position: relative;
         }
         
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+        .hero .container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: -webkit-linear-gradient(45deg, #fff, #b892ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: text-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes text-glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--primary-color), 0 0 20px var(--primary-color);
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 25px var(--secondary-color), 0 0 30px var(--secondary-color);
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-muted);
+        }
+        
+        .hero .cta-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Shared Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
         }
         
-        .typing-container {
-            color: var(--primary-color);
-            font-weight: 700;
-            min-height: 60px; /* Prevent layout shift */
-        }
-
-        .typing-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1em;
-            background-color: var(--primary-color);
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink { 50% { opacity: 0; } }
-
-        .hero-content p {
-            font-size: 1.2rem;
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
             max-width: 600px;
-            margin: 1.5rem auto 2.5rem;
-            color: var(--secondary-color);
+            margin: 0 auto 4rem;
         }
-
-        /* HOW IT WORKS SECTION */
-        .how-it-works { text-align: center; }
-        .section-header { margin-bottom: 4rem; }
-        .section-header h2 { margin-bottom: 0.5rem; }
         
-        .steps-grid {
+        /* How It Works Section */
+        .how-it-works-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
         
-        .step-card {
-            background-color: var(--card-color);
+        .how-it-works-card {
+            background: var(--card-bg);
             padding: 2.5rem 2rem;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            text-align: center;
             transition: all 0.3s ease;
         }
-        
-        .step-card:hover {
+
+        .how-it-works-card:hover {
             transform: translateY(-10px);
-            border-color: var(--accent-color-2);
+            border-color: var(--primary-color);
         }
         
-        .step-card .icon {
-            font-size: 3rem;
+        .how-it-works-card .icon {
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: var(--accent-color-2);
+            color: var(--primary-color);
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
-        .step-card h3 {
+        .how-it-works-card h3 {
+            font-size: 1.25rem;
             margin-bottom: 0.5rem;
         }
-
-        /* WAITLIST FORM SECTION */
-        .waitlist {
-            background-color: var(--card-color);
-            border-radius: 20px;
-            padding: 4rem;
-        }
-
-        .waitlist-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 4rem;
+        
+        .how-it-works-card p {
+            color: var(--text-muted);
         }
         
-        .form-container {
-            width: 100%;
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
 
+        .feature-item:hover {
+            border-color: var(--secondary-color);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .feature-item .icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* Waitlist Form Section */
+        .waitlist-section {
+            background: linear-gradient(180deg, rgba(13, 12, 29, 0), rgba(138, 43, 226, 0.2));
+        }
+
+        .waitlist-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+        }
+        
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -248,246 +294,322 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--secondary-color);
+            color: var(--text-muted);
         }
         
         .form-control {
             width: 100%;
-            padding: 0.8rem 1rem;
-            background-color: var(--background-color);
-            border: 1px solid #334155;
+            padding: 1rem;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            color: var(--primary-color);
+            color: var(--text-color);
             font-size: 1rem;
-            font-family: var(--font-family);
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         
         .form-control:focus {
             outline: none;
-            border-color: var(--accent-color-2);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
         }
 
-        /* FOOTER */
-        .main-footer {
+        select.form-control {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23a0aec0' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+        }
+        
+        .form-disclaimer {
+            font-size: 0.8rem;
+            color: var(--text-muted);
             text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid #334155;
+            margin-top: 1rem;
         }
-
-        .main-footer p {
+        
+        /* Footer */
+        .footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .footer-logo .logo-svg{
+            width: 30px;
+            height: 30px;
+        }
+        
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            color: var(--text-muted);
             font-size: 0.9rem;
-            color: var(--secondary-color);
         }
 
-        /* ANIMATIONS ON SCROLL */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 992px) {
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-            .waitlist-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .waitlist-content {
-                margin-bottom: 2rem;
-            }
-        }
-        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            section { padding: 4rem 0; }
-            .hero { height: auto; padding: 10rem 0 4rem 0; }
-            .waitlist { padding: 2rem; }
-            .container { padding: 0 1rem; }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .waitlist-box {
+                padding: 2rem;
+            }
         }
 
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero {
+                padding-top: 220px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <a href="#" class="logo">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 80 L20 20 L50 20" stroke="url(#logoGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M80 20 L80 80 L50 80" stroke="url(#logoGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M35 50 L65 50" stroke="url(#logoGradient)" stroke-width="10" stroke-linecap="round"/>
-                    <defs>
-                        <linearGradient id="logoGradient" x1="20" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#8A2BE2"/>
-                            <stop offset="1" stop-color="#4F46E5"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                Narivexo
-            </a>
-            <a href="#waitlist-form" class="btn btn-primary">Join Waitlist</a>
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <!-- SVG Logo for Narivexo -->
+                    <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:var(--primary-color); stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:var(--secondary-color); stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#logoGradient)" d="M20,10 L35,10 L80,90 L65,90 L20,10 Z M25,20 L65,20 L75,40 L35,40 L25,20 Z M30,50 L70,50 L80,70 L40,70 L30,50 Z"/>
+                    </svg>
+                    <span>Narivexo</span>
+                </a>
+                <a href="#waitlist" class="cta-button">Join Waitlist</a>
+            </nav>
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
+        <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-content">
-                <h1>Build a website for your <br><span class="typing-container" id="typing-text"></span><span class="typing-cursor"></span></h1>
-                <p>Stop wrestling with complex builders. Describe your dream website, and let Narivexo's advanced AI design and build it for you in minutes. The future of web creation is here.</p>
-                <a href="#waitlist-form" class="btn btn-primary">Get Early Access</a>
+            <div class="container">
+                <h1 class="hero-title animate-on-scroll">Your Vision, Instantly Realized.</h1>
+                <p class="hero-subtitle animate-on-scroll" style="transition-delay: 0.2s;">Stop wrestling with templates and code. Describe your dream website in plain English, and let Narivexo's advanced AI design, write, and build a stunning, professional site for you in minutes.</p>
+                <a href="#waitlist" class="cta-button animate-on-scroll" style="transition-delay: 0.4s;">Get Early Access »</a>
             </div>
         </section>
 
-        <!-- HOW IT WORKS SECTION -->
-        <section class="how-it-works">
+        <!-- How It Works Section -->
+        <section class="section">
             <div class="container">
-                <div class="section-header animate-on-scroll">
-                    <h2>Launch in 3 Simple Steps</h2>
-                    <p>From idea to live website faster than ever before.</p>
-                </div>
-                <div class="steps-grid">
-                    <div class="step-card animate-on-scroll" style="transition-delay: 100ms;">
-                        <div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
-                        <h3>1. Describe Your Vision</h3>
-                        <p>Tell our AI what you need. "A modern portfolio for a photographer" or "a sleek landing page for my new app."</p>
+                <h2 class="section-title animate-on-scroll">Website Creation. Reimagined.</h2>
+                <p class="section-subtitle animate-on-scroll">Building a professional website is now as simple as a conversation. Our AI handles the heavy lifting, so you can focus on your business.</p>
+                <div class="how-it-works-grid">
+                    <div class="how-it-works-card animate-on-scroll" style="transition-delay: 0.1s;">
+                        <i class="fas fa-comment-dots icon"></i>
+                        <h3>1. Describe Your Idea</h3>
+                        <p>Simply tell our AI about your business, project, or portfolio. The more detail you give, the better the result.</p>
                     </div>
-                    <div class="step-card animate-on-scroll" style="transition-delay: 200ms;">
-                        <div class="icon"><i class="fa-solid fa-robot"></i></div>
-                        <h3>2. AI Generates & Refines</h3>
-                        <p>Watch as our AI crafts a unique, fully-functional website with custom layouts, text, and images in real-time.</p>
+                    <div class="how-it-works-card animate-on-scroll" style="transition-delay: 0.3s;">
+                        <i class="fas fa-wand-magic-sparkles icon"></i>
+                        <h3>2. AI-Powered Generation</h3>
+                        <p>Narivexo's AI analyzes your description to generate unique layouts, color palettes, and copywriting tailored to your needs.</p>
                     </div>
-                    <div class="step-card animate-on-scroll" style="transition-delay: 300ms;">
-                        <div class="icon"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="how-it-works-card animate-on-scroll" style="transition-delay: 0.5s;">
+                        <i class="fas fa-rocket icon"></i>
                         <h3>3. Customize & Launch</h3>
-                        <p>Easily tweak the final design with our intuitive editor, then publish your professional website to the world.</p>
+                        <p>Fine-tune the AI-generated design with our easy-to-use editor, connect your domain, and launch your new website.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">More Than Just a Builder</h2>
+                <p class="section-subtitle animate-on-scroll">Narivexo comes packed with features to ensure your website is not only beautiful but also powerful and effective.</p>
+                <div class="features-grid">
+                    <div class="feature-item animate-on-scroll">
+                        <i class="fas fa-brain icon"></i>
+                        <div>
+                            <h3>True AI-Powered Design</h3>
+                            <p>Unlike template-based builders, our AI creates genuinely unique, context-aware designs from scratch for every user.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item animate-on-scroll">
+                        <i class="fas fa-feather-alt icon"></i>
+                        <div>
+                            <h3>AI Copywriting</h3>
+                            <p>Struggling with words? Our AI can generate compelling headlines, service descriptions, and calls to action for you.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item animate-on-scroll">
+                        <i class="fas fa-bolt icon"></i>
+                        <div>
+                            <h3>Blazing-Fast Performance</h3>
+                            <p>Websites built with Narivexo are optimized for speed, ensuring a great user experience and better search rankings.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item animate-on-scroll">
+                        <i class="fas fa-chart-line icon"></i>
+                        <div>
+                            <h3>Built-in SEO Optimization</h3>
+                            <p>We automatically handle technical SEO best practices, so you can be found by customers on Google.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item animate-on-scroll">
+                        <i class="fas fa-mobile-alt icon"></i>
+                        <div>
+                            <h3>Fully Responsive</h3>
+                            <p>Your website will look and function perfectly on any device, from desktops to tablets and smartphones.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item animate-on-scroll">
+                        <i class="fas fa-edit icon"></i>
+                        <div>
+                            <h3>Intuitive Editor</h3>
+                            <p>Love the AI's creation but want to tweak it? Our simple drag-and-drop editor gives you full control.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- WAITLIST FORM SECTION -->
-        <section id="waitlist-form">
+        <!-- Waitlist Form Section -->
+        <section id="waitlist" class="section waitlist-section">
             <div class="container">
-                <div class="waitlist">
-                    <div class="waitlist-container">
-                        <div class="waitlist-content animate-on-scroll">
-                            <h2>Be the First to Experience Narivexo.</h2>
-                            <p>An entirely new way to build for the web is coming. Join our exclusive waitlist to get early access, special launch-day pricing, and updates. Don't miss out.</p>
+                <h2 class="section-title animate-on-scroll">Be the First to Experience Narivexo</h2>
+                <p class="section-subtitle animate-on-scroll">The future of web design is here. Join our exclusive waitlist for early access, special launch discounts, and updates.</p>
+                <div class="waitlist-box animate-on-scroll">
+                    <form action="https://formspree.io/f/mblkggkr" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="e.g., Jane Doe" required>
                         </div>
-                        <div class="form-container animate-on-scroll" style="transition-delay: 200ms;">
-                            <form action="https://formspree.io/f/mblkggkr" method="POST">
-                                <div class="form-group">
-                                    <label for="name">Full Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="e.g., Jane Doe" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="website_type">What kind of website do you need?</label>
-                                    <select id="website_type" name="website_type" class="form-control" required>
-                                        <option value="" disabled selected>Select an option...</option>
-                                        <option value="Small Business / Startup">Small Business / Startup</option>
-                                        <option value="Personal Portfolio">Personal Portfolio</option>
-                                        <option value="E-commerce Store">E-commerce Store</option>
-                                        <option value="Blog / Content Site">Blog / Content Site</option>
-                                        <option value="Landing Page for App/Product">Landing Page for App/Product</option>
-                                        <option value="Restaurant / Cafe">Restaurant / Cafe</option>
-                                        <option value="Non-Profit / Community">Non-Profit / Community</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-primary" style="width: 100%;">Secure My Spot</button>
-                            </form>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="website-type">What type of website do you need?</label>
+                            <select id="website-type" name="website_type" class="form-control" required>
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="Small Business">Small Business / Startup</option>
+                                <option value="Portfolio">Personal Portfolio / CV</option>
+                                <option value="E-commerce">E-commerce Store</option>
+                                <option value="Blog">Blog / Content Hub</option>
+                                <option value="Restaurant">Restaurant / Cafe</option>
+                                <option value="Real Estate">Real Estate Agency</option>
+                                <option value="Non-Profit">Non-Profit Organization</option>
+                                <option value="Landing Page">Event / Product Landing Page</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn">Secure My Spot</button>
+                        <p class="form-disclaimer">We respect your privacy. No spam, ever. Unsubscribe at any time.</p>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <p>© 2024 Narivexo. All rights reserved. The future of web design is intelligent.</p>
+             <a href="#" class="footer-logo">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="url(#logoGradient)" d="M20,10 L35,10 L80,90 L65,90 L20,10 Z M25,20 L65,20 L75,40 L35,40 L25,20 Z M30,50 L70,50 L80,70 L40,70 L30,50 Z"/>
+                </svg>
+                <span>Narivexo</span>
+            </a>
+            <div class="footer-links">
+                <!-- IMPORTANT: For Google Ads, you should ideally link to actual pages -->
+                <a href="#privacy-policy-modal">Privacy Policy</a>
+                <a href="#terms-of-service-modal">Terms of Service</a>
+            </div>
+            <p class="copyright">© 2024 Narivexo. All rights reserved. The future is built with AI.</p>
         </div>
     </footer>
 
     <script>
-        // JAVASCRIPT FOR DYNAMIC EFFECTS
+        // JavaScript for scroll animations
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
 
-        // 1. TYPING EFFECT
-        document.addEventListener('DOMContentLoaded', function() {
-            const typingText = document.getElementById('typing-text');
-            const words = ["Startup.", "Portfolio.", "Online Store.", "Blog.", "Big Idea."];
-            let i = 0;
-            let j = 0;
-            let currentWord = "";
-            let isDeleting = false;
-
-            function type() {
-                currentWord = words[i];
-                if (isDeleting) {
-                    j--;
-                    typingText.textContent = currentWord.substring(0, j);
-                } else {
-                    j++;
-                    typingText.textContent = currentWord.substring(0, j);
-                }
-
-                if (!isDeleting && j === currentWord.length) {
-                    isDeleting = true;
-                    setTimeout(type, 2000); // Pause at end of word
-                } else if (isDeleting && j === 0) {
-                    isDeleting = false;
-                    i = (i + 1) % words.length;
-                    setTimeout(type, 500); // Pause before typing new word
-                } else {
-                    let typeSpeed = isDeleting ? 100 : 200;
-                    setTimeout(type, typeSpeed);
-                }
-            }
-            type();
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(el => {
+                observer.observe(el);
+            });
         });
-        
-        // 2. SCROLL ANIMATION OBSERVER
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-            if ("IntersectionObserver" in window) {
-                const observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, {
-                    threshold: 0.1 // Trigger when 10% of the element is visible
-                });
-
-                animatedElements.forEach(el => {
-                    observer.observe(el);
-                });
-            } else {
-                // Fallback for older browsers
-                animatedElements.forEach(el => {
-                    el.classList.add('is-visible');
-                });
-            }
-        });
-
     </script>
 </body>
 </html>

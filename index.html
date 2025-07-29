@@ -3,34 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Narivexo | The AI Website Builder That Brings Your Vision to Life</title>
-    <meta name="description" content="Stop wrestling with code and templates. Describe your ideal website, and let Narivexo's advanced AI build it for you in minutes. Join the waitlist for exclusive early access!">
+    <title>Narivexo | AI Website Builder - Build Your Website in Seconds</title>
+    <meta name="description" content="Join the waitlist for Narivexo, the revolutionary AI website builder that creates stunning, professional websites from a simple description. No code, no templates, just pure AI power.">
+    <meta name="keywords" content="AI website builder, Narivexo, website builder, no-code, AI design, landing page, waitlist">
     
-    <!-- Favicon (Emoji as a quick placeholder, you can replace this with a real favicon) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
-    
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* CSS RESET & DEFAULTS */
+        /* CSS RESET & GLOBAL STYLES */
         :root {
             --primary-color: #ffffff;
-            --secondary-color: #b0b8d8;
-            --background-color: #0d0f18;
-            --card-background: rgba(25, 28, 41, 0.7);
-            --accent-gradient: linear-gradient(90deg, #8A2BE2, #4A00E0, #00D4FF);
-            --accent-color-1: #8A2BE2; /* BlueViolet */
-            --accent-color-2: #00D4FF; /* DeepSkyBlue */
-            --border-color: rgba(255, 255, 255, 0.1);
-            --shadow-color: rgba(74, 0, 224, 0.5);
-            --success-color: #28a745;
-            --error-color: #dc3545;
+            --secondary-color: #b0b0d1;
+            --background-color: #0a0a1a;
+            --surface-color: #1a1a2e;
+            --accent-gradient: linear-gradient(90deg, #4f46e5, #a855f7);
+            --font-family: 'Poppins', sans-serif;
         }
 
         * {
@@ -44,26 +37,11 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-family);
             background-color: var(--background-color);
             color: var(--primary-color);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: var(--accent-gradient);
-            animation: gradient-animation 20s ease infinite;
-            background-size: 400% 400%;
-        }
-
-        @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .page-wrapper {
-            background-color: rgba(13, 15, 24, 0.95);
-            backdrop-filter: blur(100px);
-            -webkit-backdrop-filter: blur(100px);
         }
 
         .container {
@@ -72,605 +50,665 @@
             padding: 0 20px;
         }
 
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; }
+        p { color: var(--secondary-color); margin-bottom: 1rem; }
+        a { color: #8e82f4; text-decoration: none; }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            background: var(--accent-gradient);
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(121, 99, 245, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(121, 99, 245, 0.6);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-title h2 {
+            margin-bottom: 1rem;
+        }
+        
         /* HEADER */
         .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             padding: 20px 0;
+            z-index: 1000;
+            background: rgba(10, 10, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            background: rgba(13, 15, 24, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            gap: 10px;
+        }
         .logo svg {
-            width: 150px;
-            height: auto;
+            width: 40px;
+            height: 40px;
         }
-
-        .cta-button-header {
+        .logo span {
             background: var(--accent-gradient);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            background-size: 200% 200%;
-        }
-        .cta-button-header:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px var(--shadow-color);
-            animation: gradient-animation 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* HERO SECTION */
         .hero {
+            padding-top: 180px;
             text-align: center;
-            padding: 100px 0;
-            position: relative;
+            background-image: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.2) 0%, rgba(79, 70, 229, 0) 40%);
         }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1.2;
-            background: linear-gradient(90deg, #ffffff, #b0b8d8);
+        .hero h1 {
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            margin-bottom: 1.5rem;
         }
-
-        @keyframes text-focus-in {
-          0% {
-            filter: blur(12px);
-            opacity: 0;
-          }
-          100% {
-            filter: blur(0px);
-            opacity: 1;
-          }
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--secondary-color);
-            max-width: 700px;
-            margin: 0 auto 40px;
-            font-weight: 400;
-        }
-
-        /* FORM */
-        .waitlist-form {
+        .hero p {
+            font-size: 1.2rem;
             max-width: 600px;
-            margin: 0 auto;
-            background: var(--card-background);
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            margin: 0 auto 2.5rem auto;
         }
-        
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--secondary-color);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            background-color: #0d0f18;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--primary-color);
-            font-size: 1rem;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-color-1);
-            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
-        }
-
-        .custom-select-wrapper {
+        .hero .hero-image {
+            margin-top: 4rem;
+            padding: 0 20px;
             position: relative;
         }
-
-        .custom-select-wrapper::after {
-            content: '\f078';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
+        .hero .hero-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero .ai-badge {
             position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            color: var(--secondary-color);
-            pointer-events: none;
-        }
-
-        select.form-control {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-
-        .submit-button {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: white;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
             background: var(--accent-gradient);
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-size: 200%;
-        }
-        .submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px var(--shadow-color);
-            animation: gradient-animation 3s ease infinite alternate;
-        }
-        
-        .submit-button:disabled {
-            background: #555;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        #form-status {
-            margin-top: 20px;
-            font-weight: 500;
-            padding: 10px;
-            border-radius: 8px;
-            display: none;
-        }
-        #form-status.success {
-            background-color: rgba(40, 167, 69, 0.2);
-            color: var(--success-color);
-            border: 1px solid var(--success-color);
-            display: block;
-        }
-        #form-status.error {
-            background-color: rgba(220, 53, 69, 0.2);
-            color: var(--error-color);
-            border: 1px solid var(--error-color);
-            display: block;
-        }
-
-        .waitlist-perk {
-            margin-top: 20px;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 0.9rem;
-            color: var(--secondary-color);
-        }
-        .waitlist-perk i {
-            color: var(--accent-color-2);
-            margin-right: 8px;
-        }
-
-        /* SECTIONS */
-        .section {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-            max-width: 600px;
-            margin: 0 auto 60px;
+            font-weight: 600;
         }
 
         /* HOW IT WORKS */
-        .how-it-works-grid {
+        .how-it-works .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            text-align: left;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
         }
-
-        .step-card {
-            background: var(--card-background);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+        .step {
+            background: var(--surface-color);
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .step-card:hover {
+        .step:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-
-        .step-number {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--accent-color-1);
-            margin-bottom: 15px;
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            border-radius: 50%;
-            border: 2px solid var(--accent-color-1);
+        .step .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        .step-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .step-description {
-            color: var(--secondary-color);
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
         }
 
         /* FEATURES SECTION */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            text-align: left;
+            gap: 2rem;
         }
-
         .feature-item {
             display: flex;
             align-items: flex-start;
-            gap: 20px;
-            background: var(--card-background);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: background-color 0.3s;
+            gap: 1.5rem;
         }
-        .feature-item:hover {
-            background: rgba(25, 28, 41, 1);
+        .feature-item .icon {
+            font-size: 1.5rem;
+            margin-top: 5px;
+            color: #a855f7;
         }
-
-        .feature-icon {
-            font-size: 2rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            width: 40px;
-            text-align: center;
+        .feature-item h3 {
+            margin-bottom: 0.5rem;
         }
-
-        .feature-title {
-            font-size: 1.2rem;
+        
+        /* WAITLIST FORM SECTION */
+        #waitlist {
+            background-color: var(--surface-color);
+            border-radius: 20px;
+        }
+        .waitlist-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .waitlist-content h2 {
+            margin-bottom: 1rem;
+        }
+        .waitlist-content p {
+            font-size: 1.1rem;
+        }
+        .waitlist-form-wrapper {
+            background: var(--background-color);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
             font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .feature-description {
             color: var(--secondary-color);
         }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--surface-color);
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-family: var(--font-family);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #a855f7;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+        }
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23b0b0d1' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.7rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+        }
+        #form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid #4ade80;
+            background-color: rgba(74, 222, 128, 0.1);
+            border-radius: 10px;
+        }
+        #form-success h3 { color: #4ade80; }
 
         /* FOOTER */
         .footer {
+            background: var(--surface-color);
             padding: 40px 0;
             text-align: center;
-            border-top: 1px solid var(--border-color);
-            background-color: #0d0f18;
         }
-
-        .footer p {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
+        .footer .container {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
         }
-
+        .footer-links {
+            margin-bottom: 1rem;
+        }
         .footer-links a {
+            margin: 0 15px;
             color: var(--secondary-color);
-            text-decoration: none;
-            margin: 0 10px;
             transition: color 0.3s;
+            cursor: pointer;
         }
         .footer-links a:hover {
             color: var(--primary-color);
         }
         
-        /* SCROLL ANIMATIONS */
-        .animated-item {
+        /* MODAL (POPUP) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-content {
+            background-color: var(--surface-color);
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            width: 80%;
+            max-width: 700px;
+            border-radius: 15px;
+            position: relative;
+            animation: slideIn 0.4s ease;
+        }
+        .modal-close {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .modal-close:hover, .modal-close:focus {
+            color: var(--primary-color);
+        }
+        .modal-body {
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        .modal-body h2 { margin-bottom: 1rem; }
+        .modal-body p, .modal-body li { color: var(--secondary-color); }
+        .modal-body ul { padding-left: 20px; }
+
+
+        /* ANIMATIONS */
+        .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        
-        .animated-item.is-visible {
+        .animate-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
         /* RESPONSIVE DESIGN */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            .waitlist-form {
-                padding: 30px;
-            }
-            .section {
-                padding: 80px 0;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .header {
-                padding: 15px 0;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            .waitlist-form {
-                padding: 20px;
-            }
-            .features-grid, .how-it-works-grid {
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            .waitlist-container {
                 grid-template-columns: 1fr;
             }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            section { padding: 60px 0; }
+            .hero { padding-top: 140px; }
+            .header .btn { display: none; }
+            .modal-content { width: 95%; margin: 20% auto;}
         }
 
     </style>
 </head>
 <body>
-<div class="page-wrapper">
-    <header class="header container">
-        <a href="#" class="logo" aria-label="Narivexo Home">
-            <svg viewBox="0 0 196 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="var(--accent-color-1)"/>
-                        <stop offset="100%" stop-color="var(--accent-color-2)"/>
-                    </linearGradient>
-                </defs>
-                <path d="M21.134 39.5L0 0.5H10.166L26.33 30.2L26.594 30.2L42.246 0.5H52.15L31.016 39.5H21.134Z" fill="white"/>
-                <path d="M78.6826 23.3V39.5H68.5166V0.5H86.2546C90.9586 0.5 94.6786 1.76 97.4146 4.28C100.183 6.7675 101.567 10.06 101.567 14.15C101.567 17.515 100.618 20.3 98.7226 22.5C96.8596 24.6675 94.2706 26.155 90.9556 26.96L84.0946 28.52L103.355 39.5H91.6366L78.6826 23.3ZM78.6826 16.4V7.58H85.4326C87.4306 7.58 88.9246 8.035 89.9146 8.945C90.9376 9.8225 91.4476 11.03 91.4476 12.56C91.4476 14.0575 90.9316 15.245 89.8996 16.125C88.8996 16.9725 87.4126 17.4 85.4386 17.4H78.6826V16.4Z" fill="white"/>
-                <path d="M127.311 0.5V39.5H117.145V0.5H127.311Z" fill="white"/>
-                <path d="M149.623 0.5L163.663 21.62L177.703 0.5H188.983L168.823 30.08V39.5H158.443V30.08L138.283 0.5H149.623Z" fill="white"/>
-                <path d="M195.111 39.5C189.656 39.5 185.121 37.89 181.506 34.67C177.923 31.4175 176.131 27.245 176.131 22.145C176.131 17.045 177.923 12.8725 181.506 9.62C185.121 6.335 189.656 4.7 195.111 4.7C200.566 4.7 205.101 6.335 208.716 9.62C212.331 12.8725 214.141 17.045 214.141 22.145C214.141 27.245 212.331 31.4175 208.716 34.67C205.101 37.89 200.566 39.5 195.111 39.5ZM195.111 32.51C197.881 32.51 200.041 31.5725 201.591 29.69C203.174 27.775 203.966 25.21 203.966 22.01C203.966 18.7775 203.174 16.2125 201.591 14.33C200.041 12.415 197.881 11.45 195.111 11.45C192.341 11.45 190.181 12.415 188.631 14.33C187.081 16.2125 186.306 18.7775 186.306 22.01C186.306 25.21 187.081 27.775 188.631 29.69C190.181 31.5725 192.341 32.51 195.111 32.51Z" transform="translate(-45,0)" fill="url(#logoGradient)"/>
-            </svg>
-        </a>
-        <a href="#waitlist" class="cta-button-header">Join Waitlist</a>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#a855f7;"/>
+                            <stop offset="100%" style="stop-color:#4f46e5;"/>
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#logoGradient)" d="M20,10 L35,10 L80,90 L65,90 L20,10 Z M50,10 L80,10 L80,25 L65,25 L65,40 L50,40 Z M20,75 L35,75 L35,90 L20,90 Z"/>
+                </svg>
+                <span>Narivexo</span>
+            </div>
+            <a href="#waitlist" class="btn">Join Waitlist</a>
+        </div>
     </header>
 
     <main>
-        <section id="waitlist" class="hero container">
-            <h1 class="hero-title">Your Vision, Instantly Realized.<br>AI Builds The Website For You.</h1>
-            <p class="hero-subtitle">Stop wrestling with complex builders and endless templates. Describe your ideal website in plain English, and let Narivexo's advanced AI generate a stunning, professional site in minutes. The future of web design is here.</p>
-            
-            <div class="waitlist-form">
-                <form id="contact-form" action="https://formspree.io/f/mblkggkr" method="POST">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="e.g. Jane Doe" required>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="container">
+                <div class="animate-on-scroll">
+                    <h1>Build Your Dream Website in Seconds with AI</h1>
+                    <p>
+                        Stop wrestling with code and templates. Describe your vision, and our revolutionary AI will design and build a stunning, professional website for you. Instantly.
+                    </p>
+                    <a href="#waitlist" class="btn">Get Early Access</a>
+                </div>
+                <div class="hero-image animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="ai-badge">
+                        <i class="fas fa-magic"></i> AI-POWERED
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
+                    <img src="https://images.unsplash.com/photo-1559028006-44a0d9e37b4b?q=80&w=2835&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AI-generated website interface">
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS SECTION -->
+        <section class="how-it-works">
+            <div class="container">
+                <div class="section-title animate-on-scroll">
+                    <h2>It's as Easy as 1-2-3</h2>
+                    <p>Our AI streamlines the entire web design process. From idea to live site in minutes.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step animate-on-scroll">
+                        <div class="icon"><i class="fas fa-comment-dots"></i></div>
+                        <h3>1. Describe Your Vision</h3>
+                        <p>Simply tell our AI about your business, your style, and what you need on your website. The more detail, the better!</p>
                     </div>
-                    <div class="form-group">
-                        <label for="website_type">What kind of website do you want to build?</label>
-                        <div class="custom-select-wrapper">
-                            <select id="website_type" name="website_type" class="form-control" required>
-                                <option value="" disabled selected>Select an option...</option>
-                                <option value="Portfolio / Personal">Portfolio / Personal Website</option>
-                                <option value="Small Business / Services">Small Business / Services</option>
-                                <option value="E-commerce / Online Store">E-commerce / Online Store</option>
-                                <option value="Blog / Content Hub">Blog / Content Hub</option>
-                                <option value="Startup / Tech Company">Startup / Tech Company</option>
-                                <option value="Restaurant / Cafe">Restaurant / Cafe</option>
-                                <option value="Event / Landing Page">Event / Landing Page</option>
-                                <option value="Non-Profit / Community">Non-Profit / Community</option>
-                                <option value="Other">Other</option>
-                            </select>
+                    <div class="step animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="icon"><i class="fas fa-cogs"></i></div>
+                        <h3>2. AI Generates Your Site</h3>
+                        <p>Watch in real-time as Narivexo's AI crafts a unique layout, writes content, and selects imagery perfectly tailored to you.</p>
+                    </div>
+                    <div class="step animate-on-scroll" style="transition-delay: 400ms;">
+                        <div class="icon"><i class="fas fa-rocket"></i></div>
+                        <h3>3. Customize & Launch</h3>
+                        <p>Make any final tweaks with our easy-to-use editor, connect your domain, and launch your professional website to the world.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section id="features">
+            <div class="container">
+                <div class="section-title animate-on-scroll">
+                    <h2>The Future of Web Design is Here</h2>
+                    <p>Narivexo is packed with powerful features designed to make your life easier.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item animate-on-scroll">
+                        <div class="icon"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <h3>AI-Powered Content & Design</h3>
+                            <p>Our AI doesn't just use templates. It generates unique designs and writes compelling, SEO-friendly content from scratch, just for you.</p>
                         </div>
                     </div>
-                    <button type="submit" id="submit-btn" class="submit-button">Get Early Access</button>
-                    <div id="form-status"></div>
-                </form>
-                <p class="waitlist-perk animated-item"><i class="fa-solid fa-bell"></i> Be the first to know when we launch!</p>
-            </div>
-        </section>
-
-        <section id="how-it-works" class="section container">
-            <h2 class="section-title animated-item">3 Simple Steps to Your Perfect Website</h2>
-            <p class="section-subtitle animated-item">Building a website has never been this intuitive. Our AI handles the heavy lifting, so you can focus on your ideas.</p>
-            <div class="how-it-works-grid">
-                <div class="step-card animated-item">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Describe Your Vision</h3>
-                    <p class="step-description">Tell our AI what you need. For example: "Create a modern portfolio for a photographer with a dark theme and a gallery page" or "I need a website for my coffee shop with a menu and online ordering."</p>
-                </div>
-                <div class="step-card animated-item" style="transition-delay: 0.2s;">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">AI Generates & Designs</h3>
-                    <p class="step-description">In seconds, Narivexo analyzes your request, generates relevant text and images, and designs a unique, fully-functional website layout. No templates, just pure creativity.</p>
-                </div>
-                <div class="step-card animated-item" style="transition-delay: 0.4s;">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Customize & Launch</h3>
-                    <p class="step-description">Fine-tune the results with our easy-to-use editor. Change colors, fonts, or layouts with simple commands. When you're happy, launch your site with a single click.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="section container">
-            <h2 class="section-title animated-item">Packed with Powerful Features</h2>
-            <p class="section-subtitle animated-item">Narivexo isn't just a builder; it's a complete platform to help you succeed online. We provide everything you need, right out of the box.</p>
-            <div class="features-grid">
-                <div class="feature-item animated-item">
-                    <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <div>
-                        <h3 class="feature-title">True AI-Powered Design</h3>
-                        <p class="feature-description">Our AI doesn't just fill a template. It understands design principles to create unique, aesthetically pleasing layouts from scratch.</p>
+                    <div class="feature-item animate-on-scroll">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <div>
+                            <h3>Absolutely No Code</h3>
+                            <p>You don't need to know HTML, CSS, or JavaScript. If you can write an email, you can build a website with Narivexo.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="feature-item animated-item">
-                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <div>
-                        <h3 class="feature-title">SEO Optimized Content</h3>
-                        <p class="feature-description">AI generates keyword-rich content and meta tags based on your description, giving you a head start on search engine rankings.</p>
+                    <div class="feature-item animate-on-scroll">
+                        <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div>
+                            <h3>Fully Responsive</h3>
+                            <p>Every website created is automatically optimized to look and work perfectly on desktops, tablets, and smartphones.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="feature-item animated-item">
-                    <div class="feature-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
-                    <div>
-                        <h3 class="feature-title">Intuitive No-Code Editor</h3>
-                        <p class="feature-description">Make changes easily without touching a line of code. Our editor is designed for speed and simplicity.</p>
+                    <div class="feature-item animate-on-scroll">
+                        <div class="icon"><i class="fas fa-search-dollar"></i></div>
+                        <div>
+                            <h3>SEO Optimized</h3>
+                            <p>We build websites with search engine best practices in mind, helping you get found on Google from day one.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="feature-item animated-item">
-                    <div class="feature-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                    <div>
-                        <h3 class="feature-title">Responsive By Default</h3>
-                        <p class="feature-description">Every website created with Narivexo looks stunning and functions perfectly on desktops, tablets, and smartphones.</p>
+                    <div class="feature-item animate-on-scroll">
+                        <div class="icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div>
+                            <h3>Blazing Fast Performance</h3>
+                            <p>Our infrastructure ensures your website loads at incredible speeds, improving user experience and search rankings.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="feature-item animated-item">
-                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <div>
-                        <h3 class="feature-title">Blazing-Fast Hosting</h3>
-                        <p class="feature-description">Enjoy top-tier performance with our integrated, high-speed hosting, ensuring a great user experience for your visitors.</p>
-                    </div>
-                </div>
-                <div class="feature-item animated-item">
-                    <div class="feature-icon"><i class="fa-solid fa-palette"></i></div>
-                    <div>
-                        <h3 class="feature-title">AI-Assisted Branding</h3>
-                        <p class="feature-description">Need a color palette or a logo idea? Our AI can generate branding suggestions to match your website's style and purpose.</p>
+                    <div class="feature-item animate-on-scroll">
+                        <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+                        <div>
+                            <h3>E-commerce Ready</h3>
+                            <p>Need to sell products? Our AI can set up a fully functional online store for you, complete with payment processing.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="why-join" class="section container" style="padding-bottom: 120px;">
-            <h2 class="section-title animated-item">Why Join The Waitlist?</h2>
-            <p class="section-subtitle animated-item">Be part of an exclusive group of early adopters who will shape the future of web creation. Signing up gives you incredible benefits.</p>
-            <div class="how-it-works-grid">
-                 <div class="step-card animated-item">
-                    <div class="step-number"><i class="fa-solid fa-rocket"></i></div>
-                    <h3 class="step-title">Priority Access</h3>
-                    <p class="step-description">Get to use Narivexo before anyone else. Be the first to experience the magic of AI-powered web design and secure your unique username.</p>
-                </div>
-                <div class="step-card animated-item" style="transition-delay: 0.2s;">
-                    <div class="step-number"><i class="fa-solid fa-tags"></i></div>
-                    <h3 class="step-title">Exclusive Lifetime Discount</h3>
-                    <p class="step-description">As a thank you for your early support, waitlist members will receive a special, one-time offer for a lifetime discount on our premium plans.</p>
-                </div>
-                <div class="step-card animated-item" style="transition-delay: 0.4s;">
-                    <div class="step-number"><i class="fa-solid fa-comments"></i></div>
-                    <h3 class="step-title">Influence Our Roadmap</h3>
-                    <p class="step-description">Your feedback is invaluable. Early users will have a direct line to our development team to request features and help guide our progress.</p>
+        <!-- WAITLIST FORM SECTION -->
+        <section id="waitlist">
+            <div class="container">
+                <div class="waitlist-container">
+                    <div class="waitlist-content animate-on-scroll">
+                        <h2>Be the First to Experience Narivexo</h2>
+                        <p>Join our exclusive waitlist to get early access and special launch-day pricing. The future is coming, don't get left behind.</p>
+                        <p>We're building something incredible, and we can't wait for you to try it. Your spot on the waitlist ensures you're at the front of the line.</p>
+                    </div>
+                    <div class="waitlist-form-wrapper animate-on-scroll" style="transition-delay: 200ms;">
+                        <div id="form-success">
+                            <h3><i class="fas fa-check-circle"></i> Thank You!</h3>
+                            <p>You're on the list! We'll be in touch soon with updates.</p>
+                        </div>
+                        <form id="waitlist-form" action="https://formspree.io/f/mblkggkr" method="POST">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="e.g. Jane Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="website-type">What type of website do you need?</label>
+                                <select id="website-type" name="website_type" required>
+                                    <option value="" disabled selected>Select an option...</option>
+                                    <option value="Personal Portfolio">Personal Portfolio</option>
+                                    <option value="Small Business">Small Business</option>
+                                    <option value="E-commerce Store">E-commerce Store</option>
+                                    <option value="Blog / Magazine">Blog / Magazine</option>
+                                    <option value="Startup Landing Page">Startup Landing Page</option>
+                                    <option value="Restaurant / Cafe">Restaurant / Cafe</option>
+                                    <option value="Non-Profit">Non-Profit / Charity</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Join the Revolution</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
-
+    
     <footer class="footer">
         <div class="container">
-            <p>© 2024 Narivexo. All rights reserved. The future of web design is being built.</p>
             <div class="footer-links">
-                <!-- IMPORTANT: For Google Ads, you should create actual pages for these and link to them -->
-                <a href="#">Privacy Policy</a>
-                <span>•</span>
-                <a href="#">Terms of Service</a>
-                <span>•</span>
-                <a href="#">Contact Us</a>
+                <a class="modal-trigger" data-modal="privacy">Privacy Policy</a>
+                <a class="modal-trigger" data-modal="terms">Terms of Service</a>
             </div>
+            <p>© 2024 Narivexo. All rights reserved. The future is built by AI.</p>
         </div>
     </footer>
-</div>
 
-<script>
-    // ON-SCROLL ANIMATIONS
-    const animatedItems = document.querySelectorAll('.animated-item');
+    <!-- MODAL (POPUP) STRUCTURE -->
+    <div id="modal-container" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">×</span>
+            <div id="modal-body" class="modal-body">
+                <!-- Content will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        rootMargin: '0px',
-        threshold: 0.1
-    });
 
-    animatedItems.forEach(item => {
-        observer.observe(item);
-    });
-
-    // FORM SUBMISSION HANDLING (AJAX)
-    const form = document.getElementById('contact-form');
-    const statusDiv = document.getElementById('form-status');
-    const submitButton = document.getElementById('submit-btn');
-
-    async function handleSubmit(event) {
-        event.preventDefault();
-        const data = new FormData(event.target);
+    <script>
+        // SCRIPT FOR ANIMATIONS, FORM HANDLING, AND MODAL
+        document.addEventListener('DOMContentLoaded', function() {
         
-        submitButton.disabled = true;
-        submitButton.textContent = 'Submitting...';
+            // --- INTERSECTION OBSERVER FOR SCROLL ANIMATIONS ---
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
-        fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(response => {
-            if (response.ok) {
-                statusDiv.innerHTML = "Thank you! You're on the waitlist. We'll be in touch soon.";
-                statusDiv.className = 'success';
-                form.reset();
-            } else {
-                response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                        statusDiv.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        statusDiv.innerHTML = "Oops! There was a problem submitting your form. Please try again.";
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
                     }
-                    statusDiv.className = 'error';
-                })
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // --- FORM SUBMISSION HANDLING (AJAX) ---
+            const form = document.getElementById('waitlist-form');
+            const formSuccessMessage = document.getElementById('form-success');
+            
+            async function handleSubmit(event) {
+                event.preventDefault();
+                const status = document.createElement('p');
+                const data = new FormData(event.target);
+                
+                fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        formSuccessMessage.style.display = 'block';
+                        form.reset();
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                alert(data["errors"].map(error => error["message"]).join(", "));
+                            } else {
+                                alert("Oops! There was a problem submitting your form.");
+                            }
+                        })
+                    }
+                }).catch(error => {
+                     alert("Oops! There was a problem submitting your form.");
+                });
             }
-        }).catch(error => {
-            statusDiv.innerHTML = "Oops! There was a problem submitting your form. Please check your connection.";
-            statusDiv.className = 'error';
-        }).finally(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Get Early Access';
+            form.addEventListener("submit", handleSubmit);
+
+
+            // --- MODAL (POPUP) LOGIC ---
+            const modalContainer = document.getElementById('modal-container');
+            const modalBody = document.getElementById('modal-body');
+            const closeModalBtn = document.querySelector('.modal-close');
+            const modalTriggers = document.querySelectorAll('.modal-trigger');
+
+            const modalContent = {
+                privacy: {
+                    title: 'Privacy Policy',
+                    content: `
+                        <h2>1. Introduction</h2>
+                        <p><strong>IMPORTANT:</strong> This is a template. You must replace this with your own legally compliant Privacy Policy.</p>
+                        <p>Welcome to Narivexo. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us.</p>
+                        
+                        <h2>2. Information We Collect</h2>
+                        <p>We collect personal information that you voluntarily provide to us when you register on the website, express an interest in obtaining information about us or our products and services, when you participate in activities on the website or otherwise when you contact us.</p>
+                        <p>The personal information that we collect depends on the context of your interactions with us and the website, the choices you make and the products and features you use. The personal information we collect may include the following: Name, Email Address, and Website Preferences.</p>
+
+                        <h2>3. How We Use Your Information</h2>
+                        <p>We use personal information collected via our website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations. The purposes include: to send you marketing and promotional communications, to send administrative information to you, and to manage user accounts.</p>
+                        
+                        <h2>4. Will Your Information Be Shared?</h2>
+                        <p>We only share information with your consent, to comply with laws, to provide you with services, to protect your rights, or to fulfill business obligations.</p>
+                    `
+                },
+                terms: {
+                    title: 'Terms of Service',
+                    content: `
+                        <h2>1. Agreement to Terms</h2>
+                        <p><strong>IMPORTANT:</strong> This is a template. You must replace this with your own legally compliant Terms of Service.</p>
+                        <p>By using our services, you are agreeing to these terms. Please read them carefully. These Terms of Service ("Terms") govern your access to and use of the Narivexo website and services ("Services").</p>
+
+                        <h2>2. Waitlist</h2>
+                        <p>By providing your information, you are joining a waitlist for potential access to our services. This does not constitute an offer or a contract for service. We reserve the right to select users from the waitlist at our sole discretion. We do not guarantee access to the service for everyone on the waitlist.</p>
+                        
+                        <h2>3. Intellectual Property Rights</h2>
+                        <p>The Service and its original content, features, and functionality are and will remain the exclusive property of Narivexo and its licensors. The websites you create using our service are your property, but we retain the right to use them for marketing and promotional purposes unless you opt-out in writing.</p>
+                        
+                        <h2>4. User Representations</h2>
+                        <p>By using the Site, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these Terms of Use.</p>
+                    `
+                }
+            };
+
+            function openModal(type) {
+                if (modalContent[type]) {
+                    modalBody.innerHTML = `<h2>${modalContent[type].title}</h2>${modalContent[type].content}`;
+                    modalContainer.style.display = 'block';
+                }
+            }
+
+            function closeModal() {
+                modalContainer.style.display = 'none';
+                modalBody.innerHTML = '';
+            }
+            
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modalType = this.getAttribute('data-modal');
+                    openModal(modalType);
+                });
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+
+            window.addEventListener('click', function(event) {
+                if (event.target == modalContainer) {
+                    closeModal();
+                }
+            });
+        
         });
-    }
-    form.addEventListener("submit", handleSubmit);
-</script>
+    </script>
 
 </body>
 </html>
